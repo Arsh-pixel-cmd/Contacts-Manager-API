@@ -32,21 +32,23 @@ This project allows users to register, login, and securely perform CRUD operatio
 
 ---
 
-## 📂 Project Structure
+📂 Arsh-pixel-cmd
+├── 📂 config/               # Database connection settings
+│   └── dbConnection.js
+├── 📂 controllers/          # User & Contact controllers
+├── 📂 middleware/           # Error handler & JWT validation
+├── 📂 models/               # Mongoose models (User, Contact)
+├── 📂 routes/               # API route definitions
+├── .gitignore               # Ignore node_modules, .env, etc.
+├── LICENSE                  # MIT License
+├── README.md                # Project documentation
+├── constants.js             # Constants (error codes/messages)
+├── package-lock.json        # Dependency lock file
+├── package.json             # Project metadata & scripts
+├── server.js                # Main entry point (Vercel-ready)
+├── vercel.json              # Vercel deployment configuration
+└── .env.example             # Example environment variables
 
-📂 Contacts-Manager-API  
-├── 📂 config/              # Database connection settings  
-├── 📂 controllers/         # User & Contact controllers  
-├── 📂 middleware/          # Error handler & JWT validation  
-├── 📂 models/              # Mongoose models (User, Contact)  
-├── 📂 routes/              # API route definitions  
-├── .gitignore              # Ignored files & folders  
-├── LICENSE                 # Project license (MIT)  
-├── README.md               # Project documentation  
-├── constants.js            # Constants (error codes/messages)  
-├── package-lock.json       # Dependency lock file  
-├── package.json            # Project metadata & dependencies  
-├── server.js               # Main entry point of the app  
  
 
 ---
