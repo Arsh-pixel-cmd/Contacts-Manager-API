@@ -107,6 +107,81 @@ Connection Established : Host = localhost and Name = test
 
 ---
 
+# How to Interact with the Project
+
+Visitors can interact with the backend API using the deployed URL:
+
+**Base URL:**  
+[https://arsh-pixel-cmd.vercel.app](https://arsh-pixel-cmd.vercel.app)
+
+---
+
+## 1. Check Server Status
+
+Open the URL in a browser or Postman:
+
+| Method | Endpoint  | Description                 |
+|--------|-----------|-----------------------------|
+| GET    | `/`       | Check if server is running  |
+| GET    | `/health` | Check server health/status  |
+
+---
+
+## 2. User Authentication
+
+Register a new account or login to get access to contacts.
+
+| Method | Endpoint                 | Description                  |
+|--------|-------------------------|------------------------------|
+| POST   | `/api/users/register`    | Register a new user          |
+| POST   | `/api/users/login`       | Login and receive JWT token  |
+
+**Example Request Body (JSON)**
+
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+## 3. Contacts API
+
+All contacts routes require an **Authorization header** with your JWT token:
+Authorization: Bearer <your-token>
+
+
+| Method | Endpoint              | Description                    |
+|--------|----------------------|--------------------------------|
+| GET    | `/api/contacts`       | List all contacts for the user |
+| POST   | `/api/contacts`       | Create a new contact           |
+| GET    | `/api/contacts/:id`   | Get a single contact by ID     |
+| PUT    | `/api/contacts/:id`   | Update a contact by ID         |
+| DELETE | `/api/contacts/:id`   | Delete a contact by ID         |
+
+**Example Request Body for Creating/Updating Contact**
+
+```json
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "phone": "1234567890"
+}
+```
+
+## 4. Using Postman or Frontend
+
+- Copy the **base URL**: `https://contacts-manager-api-nu.vercel.app/` and append the endpoints.  
+- Include the **JWT token** in the Authorization header for protected routes:
+Authorization: Bearer <your-token>
+
+
+- Users can perform all **CRUD operations** on contacts and manage their accounts directly from **Postman**, frontend apps, or any HTTP client.
+
+
+---
+
 ## 🧪 Testing with Postman  
 
 ### 1. Register User  
