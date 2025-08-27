@@ -1,30 +1,31 @@
 import dotenv from "dotenv";
-dotenv.config();  // load env variables first
+dotenv.config(); // Load env variables first
 
 import express from "express";
 import errorHandler from "./middleware/errorHandler.js";
 import connectDb from "./config/dbConnection.js";
 
-connectDb(); // now process.env.CONNECTION_STRING is defined
-
+// Connect to database
+connectDb();
 
 const app = express();
 
-const port = process.env.PORT || 4000;
+// Middleware
+app.use(express.json());
 
-async function importRoutes() {
-  try {
-    app.use(express.json());
-    const contactsRoutes = await import("./routes/contactsRoutes.js");
-    app.use("/api/contacts", contactsRoutes.default);
-    const userRoutes = await import("./routes/userRoutes.js");
-    app.use("/api/users", userRoutes.default);
-    app.use(errorHandler);
-  } catch (error) {
-    console.error("Error occurred while importing  routes:", error);
-  }
-}
+// Routes
+import("./routes/contactsRoutes.js").then((module) => {
+  app.use("/api/contacts", module.default);
+}).catch((err) => console.error("Error loading contactsRoutes:", err));
 
+import("./routes/userRoutes.js").then((module) => {
+  app.use("/api/users", module.default);
+}).catch((err) => console.error("Error loading userRoutes:", err));
+
+// Error Handler
+app.use(errorHandler);
+
+// Basic test routes
 app.get("/", (req, res) => {
   res.send("Server is running!");
 });
@@ -33,8 +34,13 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+// Detect if running on Vercel serverless or locally
+const port = process.env.PORT || 4000;
+if (!process.env.VERCEL) {
+  // Local server
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+  });
+}
 
-app.listen(port, async () => {
-  await importRoutes();
-  console.log(`server is listening on port ${port}`);
-});
+export default app;
