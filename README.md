@@ -41,7 +41,7 @@ This project allows users to register, login, and securely perform CRUD operatio
 ├── 📂 models/              # Mongoose models (User, Contact)  
 ├── 📂 routes/              # API route definitions  
 ├── .gitignore              # Ignored files & folders  
-├── LICENSE                 # Project license (ISC)  
+├── LICENSE                 # Project license (MIT)  
 ├── README.md               # Project documentation  
 ├── constants.js            # Constants (error codes/messages)  
 ├── package-lock.json       # Dependency lock file  
