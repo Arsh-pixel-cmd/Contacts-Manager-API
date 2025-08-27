@@ -33,15 +33,21 @@ This project allows users to register, login, and securely perform CRUD operatio
 ---
 
 ## 📂 Project Structure
+
 📂 Contacts-Manager-API  
-├── server.js # Main entry point  
-├── config/ # Database connection  
-├── controllers/ # User & Contact controllers  
-├── middleware/ # Error & JWT validation  
-├── models/ # User & Contact models  
-├── routes/ # API routes  
-├── .env # Environment variables  
-├── package.json # Project metadata and dependencies  
+├── 📂 config/              # Database connection settings  
+├── 📂 controllers/         # User & Contact controllers  
+├── 📂 middleware/          # Error handler & JWT validation  
+├── 📂 models/              # Mongoose models (User, Contact)  
+├── 📂 routes/              # API route definitions  
+├── .gitignore              # Ignored files & folders  
+├── LICENSE                 # Project license (ISC)  
+├── README.md               # Project documentation  
+├── constants.js            # Constants (error codes/messages)  
+├── package-lock.json       # Dependency lock file  
+├── package.json            # Project metadata & dependencies  
+├── server.js               # Main entry point of the app  
+ 
 
 ---
 
